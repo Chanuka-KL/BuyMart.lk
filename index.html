@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyMart LK - Launching Soon</title>
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(135deg, #000428, #004e92);
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Animation */
+        .animation-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url('https://source.unsplash.com/1920x1080/?technology,abstract') no-repeat center center/cover;
+            filter: blur(10px);
+            opacity: 0.2;
+        }
+
+        /* Content Box */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 90%;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-wrap: wrap;
+        }
+
+        .countdown div {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        /* Button */
+        .launch-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #ff7b00;
+            color: white;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .launch-btn:hover {
+            background: #ff3c00;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .countdown {
+                font-size: 1.2rem;
+                gap: 10px;
+            }
+            .countdown div {
+                padding: 10px 15px;
+                min-width: 60px;
+            }
+            .launch-btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animation -->
+    <div class="animation-bg"></div>
+
+    <!-- Content -->
+    <div class="content">
+        <h1>🚀 BuyMart LK is Launching Soon! 🚀</h1>
+        <p>Be ready! Something amazing is coming.</p>
+        
+        <div class="countdown">
+            <div><span id="days">00</span> Days</div>
+            <div><span id="hours">00</span> Hrs</div>
+            <div><span id="minutes">00</span> Min</div>
+            <div><span id="seconds">00</span> Sec</div>
+        </div>
+
+        <a href="https://whatsapp.com/channel/0029Vb6CQmm0gcfRKI2E1325" class="launch-btn">Join Our Community</a>
+    </div>
+
+    <!-- Countdown Timer Script -->
+    <script>
+        var launchDate = new Date("March 1, 2025 00:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = launchDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "🚀 We Are Live!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
