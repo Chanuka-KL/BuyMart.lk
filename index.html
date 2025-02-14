@@ -237,6 +237,13 @@
             document.getElementById("minutes").innerHTML = minutes;
             document.getElementById("seconds").innerHTML = seconds;
         }, 1000);
+
+       
+fetch("/api/track")
+  .then(response => response.json())
+  .then(data => console.log("Visitor Logged:", data))
+  .catch(error => console.error("Error:", error));
+   
     </script>
 
 </body>
